@@ -1,16 +1,40 @@
+import { useCallback, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import FeaturedGrid from './components/FeaturedGrid';
+import ShopGrid from './components/ShopGrid';
+import CartCheckout from './components/CartCheckout';
+import AdminSection from './components/AdminSection';
 import Footer from './components/Footer';
 
 export default function App() {
+  const [cart, setCart] = useState([]);
+
+  const handleAddToCart = useCallback((item) => {
+    setCart((prev) => {
+      const exists = prev.find((p) => p.id === item.id);
+      if (exists) {
+        return prev.map((p) => (p.id === item.id ? { ...p, qty: p.qty + 1 } : p));
+      } else {
+        return [...prev, { ...item, qty: 1 }];
+      }
+    });
+  }, []);
+
+  const handleRemove = useCallback((id) => {
+    setCart((prev) => prev.filter((p) => p.id !== id));
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-white font-[Poppins,Inter,ui-sans-serif]">
       <Navbar />
       <main className="pt-16">
         <Hero />
         <FeaturedGrid />
-        {/* About & Contact sections (simple anchors) */}
+        <ShopGrid onAddToCart={handleAddToCart} />
+        <CartCheckout cart={cart} onRemove={handleRemove} />
+        <AdminSection />
+        {/* About & Contact */}
         <section id="about" className="py-16 sm:py-20 bg-gradient-to-b from-black via-zinc-900/30 to-black">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 className="text-2xl sm:text-3xl font-semibold bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-300 text-transparent bg-clip-text mb-4">

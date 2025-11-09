@@ -17,18 +17,18 @@ export default function Navbar() {
 
         {/* Actions */}
         <div className="flex items-center gap-2 sm:gap-4">
-          <button className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-700 text-black font-medium shadow-[0_0_20px_rgba(234,179,8,0.35)] hover:shadow-[0_0_35px_rgba(234,179,8,0.65)] transition-shadow">
+          <a href="#shop" className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-700 text-black font-medium shadow-[0_0_20px_rgba(234,179,8,0.35)] hover:shadow-[0_0_35px_rgba(234,179,8,0.65)] transition-shadow">
             Shop Now
-          </button>
-          <button className="p-2 rounded-full border border-zinc-800 text-zinc-200 hover:border-yellow-600 hover:text-yellow-400 transition-colors" aria-label="Cart">
+          </a>
+          <a href="#checkout" className="p-2 rounded-full border border-zinc-800 text-zinc-200 hover:border-yellow-600 hover:text-yellow-400 transition-colors" aria-label="Cart">
             <ShoppingCart size={20} />
-          </button>
-          <button className="p-2 rounded-full border border-zinc-800 text-zinc-200 hover:border-yellow-600 hover:text-yellow-400 transition-colors" aria-label="Account">
+          </a>
+          <a href="#contact" className="p-2 rounded-full border border-zinc-800 text-zinc-200 hover:border-yellow-600 hover:text-yellow-400 transition-colors" aria-label="Account">
             <User size={20} />
-          </button>
-          <button className="p-2 rounded-full border border-zinc-800 text-zinc-200 hover:border-yellow-600 hover:text-yellow-400 transition-colors" aria-label="Admin">
+          </a>
+          <a href="#admin" className="p-2 rounded-full border border-zinc-800 text-zinc-200 hover:border-yellow-600 hover:text-yellow-400 transition-colors" aria-label="Admin">
             <Settings size={20} />
-          </button>
+          </a>
         </div>
       </nav>
     </header>
